@@ -1,0 +1,5 @@
+---
+- import_playbook: Playbooks/deploy_lxc_containers.yml
+- import_playbook: Playbooks/install_base_packages.yml
+- import_playbook: Playbooks/privelege_lxc_instances.yml
+- import_playbook: Playbooks/bootstrap_kubernetes.yml
