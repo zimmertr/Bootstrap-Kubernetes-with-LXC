@@ -1,53 +1,49 @@
 ---
 - hosts: proxmox_server
   tasks: 
-      - name: Stopping the Kubernetes master container. (If applicable)
+      - name: Stopping the Kubernetes master container.
         shell: pct stop {{ k8s_master_id }}
         ignore_errors: yes
 
-      - name: Stopping the first Kubernetes node container. (If applicable)
+      - name: Stopping the first Kubernetes node container.
         shell: pct stop {{ k8s_node1_id }}
         ignore_errors: yes
 
-      - name: Stopping the second Kubernetes node container. (If applicable)
+      - name: Stopping the second Kubernetes node container.
         shell: pct stop {{ k8s_node2_id }}
         ignore_errors: yes
 
-      - name: Stopping the third Kubernetes node container. (If applicable)
+      - name: Stopping the third Kubernetes node container.
         shell: pct stop {{ k8s_node3_id }}
         ignore_errors: yes
 
-      - name: Destroying the Kubernetes master container. (If applicable)
+      - name: Destroying the Kubernetes master container.
         shell: pct destroy {{ k8s_master_id }}
         ignore_errors: yes
 
-      - name: Destroying the first Kubernetes node container. (If applicable)
+      - name: Destroying the first Kubernetes node container.
         shell: pct destroy {{ k8s_node1_id }}
         ignore_errors: yes
 
-      - name: Destroying the second Kubernetes node container. (If applicable)
+      - name: Destroying the second Kubernetes node container.
         shell: pct destroy {{ k8s_node2_id }}
         ignore_errors: yes
 
-      - name: Destroying the third Kubernetes node container. (If applicable)
+      - name: Destroying the third Kubernetes node container.
         shell: pct destroy {{ k8s_node3_id }}
-        ignore_errors: yes
-
-      - name: Destroying the Kubernetes VM template. (If applicable)
-        shell: qm destroy {{ proxmox_template_id }}
         ignore_errors: yes
 
       - name: Destroying the Kubernetes Resource Pool.
         shell: pvesh delete /pools/{{ k8s_resource_pool }}
         ignore_errors: yes
 
-      - name: Removing the overlay kernel module from /etc/modules. (If applicable)
+      - name: Removing the overlay kernel module from /etc/modules.
         replace: 
           path: /etc/modules
           regexp: '^overlay$'
         ignore_errors: yes
 
-      - name: Stopping the overlay module on the Proxmox server. (If applicable)
+      - name: Stopping the overlay module on the Proxmox server.
         modprobe:
           name: overlay
           state: absent

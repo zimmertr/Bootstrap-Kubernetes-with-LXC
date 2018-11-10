@@ -3,7 +3,9 @@
 # Summary
 Build a 4 node Kubernetes cluster on a Proxmox cluster using Ansible and LXC. 
 
-Approximate deployment time: 
+Approximate deployment time: 20 minutes.
+
+WARNING: See problems section before using this repository.
 
 # Requirements
 1. Proxmox server
