@@ -21,7 +21,7 @@ Approximate deployment time:
 # Tips
 1. You can rollback the entire deployment with: `ansible-playbook -e @vars.yml -i inventory.ini delete_all_resources.yml`
 2. If your LXC instances fail to install `openssh-server` and throw a long `yum` related error, it's likely that they do not have a properly configured network. You can troubleshoot this by using the `lxc-attach` command to connect to them from Promxox without SSH. 
-3. 2. See [this repository](https://github.com/zimmertr/Bootstrap-Kubernetes-with-QEMU) to do this with QEMU instead.  Benefits of using QEMU include:
+3. See [this repository](https://github.com/zimmertr/Bootstrap-Kubernetes-with-QEMU) to do this with QEMU instead.  Benefits of using QEMU include:
 ```
 * More security since the compute resources aren't sharing kernel space with your server.
 * Not at the mercy of the Proxmox kernel for compatibility with necessary Kubernetes kernel modules.
