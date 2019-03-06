@@ -1,4 +1,6 @@
-## Bootstrap Kubernetes with QEMU
+## Bootstrap Kubernetes with LXC
+
+WARNING: This project is no longer developed as I have moved to using QEMU instead. https://github.com/zimmertr/Bootstrap-Kubernetes-with-QEMU
 
 # Summary
 Build a 4 node Kubernetes cluster on a Proxmox cluster using Ansible and LXC. 
